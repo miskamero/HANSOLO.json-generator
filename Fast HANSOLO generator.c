@@ -17,7 +17,7 @@ void generateJSON(FILE* file, int* repetitions) {
 }
 
 int main() {
-    int repetitions = 10000;
+    int repetitions = 1000000000;
     FILE* file = fopen("HANSOLO.json", "w");
 
     if (file == NULL) {
