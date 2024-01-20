@@ -3,12 +3,12 @@
 const char* jsonData = "{\"data\":[";
 const char* hansoloData = "\"HANSOLO\"";
 
-void generateJSON(FILE* file, int repetitions) {
+void generateJSON(FILE* file, int* repetitions) {
     fprintf(file, "%s", jsonData);
 
-    for (int i = 0; i < repetitions; i++) {
+    for (int i = 0; i < *repetitions; i++) {
         fprintf(file, "%s", hansoloData);
-        if (i < repetitions - 1) {
+        if (i < *repetitions - 1) {
             fprintf(file, ",");
         }
     }
@@ -25,7 +25,7 @@ int main() {
         return 1;
     }
 
-    generateJSON(file, repetitions);
+    generateJSON(file, &repetitions);
 
     fclose(file);
     printf("HANSOLO.json created successfully with %d repetitions.\n", repetitions);
